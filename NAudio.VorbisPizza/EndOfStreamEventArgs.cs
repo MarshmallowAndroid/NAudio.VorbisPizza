@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NAudio.Vorbis
+namespace NAudio.VorbisPizza
 {
     /// <summary>
     /// Arguments for the EndOfStream event.

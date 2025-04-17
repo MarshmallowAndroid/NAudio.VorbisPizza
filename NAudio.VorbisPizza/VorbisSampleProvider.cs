@@ -3,7 +3,7 @@ using NVorbis.Contracts;
 using System;
 using System.Collections.Generic;
 
-namespace NAudio.Vorbis
+namespace NAudio.VorbisPizza
 {
     /// <summary>
     /// Implements <see cref="ISampleProvider"/> for NVorbis.
@@ -253,7 +253,7 @@ namespace NAudio.Vorbis
         /// <param name="sourceStream">The stream to read for data.</param>
         public VorbisSampleProvider(System.IO.Stream sourceStream, bool closeOnDispose = false)
         {
-            _containerReader = new NVorbis.Ogg.ContainerReader(sourceStream, closeOnDispose)
+            _containerReader = new NVorbis.Ogg.ContainerReader(NVorbis.VorbisConfig.Default, sourceStream, closeOnDispose)
             {
                 NewStreamCallback = ProcessNewStream
             };
@@ -318,7 +318,7 @@ namespace NAudio.Vorbis
                 }
             }
 
-            return _streamDecoder.Read(buffer, offset, count);
+            return _streamDecoder.Read(new Span<float>(buffer, offset, count)) * WaveFormat.Channels;
         }
 
         /// <summary>

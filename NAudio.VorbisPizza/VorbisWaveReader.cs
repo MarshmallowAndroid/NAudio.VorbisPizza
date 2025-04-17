@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace NAudio.Vorbis
+namespace NAudio.VorbisPizza
 {
     public class VorbisWaveReader : Wave.WaveStream, Wave.ISampleProvider
     {
