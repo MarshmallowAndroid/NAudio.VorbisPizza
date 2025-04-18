@@ -77,7 +77,7 @@ namespace NAudio.VorbisPizza
 
         public int Read(float[] buffer, int offset, int count)
         {
-            if (IsParameterChange) throw new InvalidOperationException("A parameter change is pending.  Call ClearParameterChange() to clear it.");
+            //if (IsParameterChange) throw new InvalidOperationException("A parameter change is pending.  Call ClearParameterChange() to clear it.");
 
             return _sampleProvider.Read(buffer, offset, count);
         }

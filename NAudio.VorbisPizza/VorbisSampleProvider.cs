@@ -86,6 +86,7 @@ namespace NAudio.VorbisPizza
             try
             {
                 decoder = new NVorbis.StreamDecoder(packetProvider);
+                decoder.Initialize();
             }
 #pragma warning disable CA1031 // Do not catch general exception types
             catch (Exception ex)
